@@ -1,7 +1,8 @@
 class StaticPagesController < ApplicationController
   attr_accessor :username
-  
+
   def home
+    @blog_posts = BlogPost.all
   end
 
   def About

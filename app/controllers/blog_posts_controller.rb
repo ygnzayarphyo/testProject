@@ -1,5 +1,6 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  CATEGORY = ["Lifestyle", "Entertainment", "Tech", "Food", "Sports", "Videos", "Cinema"]
 
   # GET /blog_posts
   # GET /blog_posts.json
@@ -71,4 +72,5 @@ class BlogPostsController < ApplicationController
     def blog_post_params
       params.require(:blog_post).permit(:title, :content, :picture, :category, :user_id)
     end
+
 end

@@ -1,0 +1,26 @@
+<% user=User.all %>
+    <% @blog_posts.each do |blog_post| %>
+    <div class="grid-container">
+      <div class="Picture">
+        <%= blog_post.picture %>
+      </div>
+      <div class="Title">
+        <%= link_to blog_post.title, blog_post %>
+      </div>
+      <br/>
+      <div class="Author">
+        <% @matchUser=user.find_by(id: blog_post.user_id) %>
+        By <%= @matchUser.username %> . Posted <%= time_ago_in_words(blog_post.created_at) %> ago.
+      </div>
+      <div class="Edit">
+        <% if user_signed_in? %>
+          <% if current_user.id==blog_post.user_id %>
+            <%= link_to 'Edit', edit_blog_post_path(blog_post) %> &nbsp;
+            <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp;
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+
+  <br/>

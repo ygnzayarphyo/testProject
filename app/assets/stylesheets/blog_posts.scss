@@ -1,3 +1,32 @@
 // Place all the styles related to the BlogPosts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "Picture Title Title Title" "Picture Author Author Author" "Picture Edit Update Delete";
+}
+
+.Picture  {
+  grid-area: Picture ;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-color: #fff;
+}
+
+.Title {
+  grid-area: Title;
+  padding-bottom: 20px;
+}
+
+.Author {
+  grid-area: Author;
+}
+
+.Edit {
+  grid-area: Edit;
+}

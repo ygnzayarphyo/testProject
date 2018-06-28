@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blog_posts
   get 'static_pages/Lifestyle'
   get 'static_pages/Entertainment'
   get 'static_pages/Tech'

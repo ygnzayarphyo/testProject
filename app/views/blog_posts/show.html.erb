@@ -23,9 +23,11 @@
 <h6>
 <%= time_ago_in_words(@blog_post.created_at) %> ago. | <bold><%= @blog_post.category %></bold><br/><br/>
 Posted By <%= @user.username %>.
-<% if current_user.id==@blog_post.user_id %>
-  <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-  <%= link_to 'Destroy', @blog_post, method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp;
+<% if user_signed_in? %>
+  <% if current_user.id==@blog_post.user_id %>
+    <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+    <%= link_to 'Destroy', @blog_post, method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp;
+  <% end %>
 <% end %>
 </h6>
 <p>

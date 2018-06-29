@@ -43,3 +43,17 @@ span.picture {
     border:1;
   }
 }
+
+a:link {
+
+  color: #fff;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    text-decoration: underline;
+
+  }
+}

@@ -29,6 +29,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 #gem jquery
 gem 'jquery-rails'
+#for semi data for database data.
+gem 'faker'
 #end user defined
 
 # Use CoffeeScript for .coffee assets and views

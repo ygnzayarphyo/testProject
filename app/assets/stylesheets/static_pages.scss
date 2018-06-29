@@ -98,53 +98,19 @@ footer {
   padding-right: 20px;
 
 }
-#sidebar
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
 
-.gravatar_edit {
-  margin-top: 15px;
-}
+a:link {
 
-.stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $light-gray;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: $light-sea-green;
-      background-color: $white;
-    }
-  }
-  strong {
-    display: block;
-  }
-}
+  color: #fff;
 
-.user_avatars {
-  overflow: auto;
-  margin-top: 10px;
-  .gravatar {
-    margin: 1px 1px;
+  &:visited {
+    color: #666;
   }
-  a {
-    padding: 0;
-  }
-}
 
-.users.follow {
-  padding: 0;
+  &:hover {
+    text-decoration: underline;
+
+  }
 }
 
 /* forms */

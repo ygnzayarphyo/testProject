@@ -3,6 +3,9 @@
   <% if @blog_posts.nil? %>
     <p> Sorry, No post right now</p>
   <% else %>
+
+    <%= will_paginate @blog_posts%>
+
     <% @blog_posts.each do |blog_post| %>
     <div class="grid-container">
       <div class="picture">
@@ -27,6 +30,7 @@
     <hr width="80%" />
 
     <% end %>
+    <%= will_paginate @blog_posts %>
   <% end %>
 
   <br/>

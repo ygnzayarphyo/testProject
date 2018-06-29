@@ -7,6 +7,7 @@ $light-sea-green: #20b2aa;
 $white: #fff;
 $red: #C70039;
 $dark-green: #20B100;
+$light-green: #B8FFA8;
 
 /* universal */
 
@@ -82,7 +83,7 @@ p {
     font-size: 1.3em;
 }
 .navbar-nav > li > a:hover{
-    color: $dark-green;
+    color: $light-green;
     font-weight: bold;
 }
 
@@ -95,7 +96,7 @@ footer {
   color: $light-gray;
   text-align: right;
   padding-right: 20px;
-  
+
 }
 #sidebar
 .gravatar {

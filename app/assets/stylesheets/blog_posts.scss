@@ -5,28 +5,41 @@
 .grid-container {
   display: grid;
   height: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: "Picture Title Title Title" "Picture Author Author Author" "Picture Edit Update Delete";
+  grid-template-columns: 10% 1fr 10% 10%;
+  grid-template-rows: 15% 1fr 1fr;
+  grid-template-areas: "picture content . ." ". . . ." ". . . .";
 }
 
-.Picture  {
-  grid-area: Picture ;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  border-color: #fff;
+.picture {
+  grid-area: picture;
+  align-content: center;
 }
 
-.Title {
-  grid-area: Title;
-  padding-bottom: 20px;
+.content {
+  display: grid;
+  grid-area: content;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "title title" "posted_by posted_by";
 }
 
-.Author {
-  grid-area: Author;
+.title {
+  grid-area: title;
 }
 
-.Edit {
-  grid-area: Edit;
+.posted_by {
+  grid-area: posted_by;
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+  .clearfix {
+    overflow: auto;
+  }
+  img{
+    border:1;
+  }
 }

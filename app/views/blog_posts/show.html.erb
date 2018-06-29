@@ -1,31 +1,36 @@
 <% provide(:title, 'Show posted ') %>
+<%
+  @user=User.find_by(id: @blog_post.user_id)
+%>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @blog_post.title %>
+  <h2 align="left"><strong><%= @blog_post.title %></strong></h2>
 </p>
 
+<div class="grid-container">
+  <h6>
+    <div class="picture">
+      <% if @blog_post.picture? %>
+        <%= image_tag @blog_post.picture.url, width: 150, height: 150 %>
+      <% else %>
+        <%= link_to image_tag("default_picture.png", alt: "No image uploaded.", width: 300, height: 150) %>
+      <% end %>
+    </div>
+  </h6>
+</div>
+<h6>
+<%= time_ago_in_words(@blog_post.created_at) %> ago. | <bold><%= @blog_post.category %></bold><br/><br/>
+Posted By <%= @user.username %>.
+<% if current_user.id==@blog_post.user_id %>
+  <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+  <%= link_to 'Destroy', @blog_post, method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp;
+<% end %>
+</h6>
 <p>
   <strong>Content:</strong>
   <%= @blog_post.content %>
 </p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @blog_post.picture %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @blog_post.category %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @blog_post.user %>
-</p>
-
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-<%= link_to 'Back', '/home' %>
+<br/>
+<br/>

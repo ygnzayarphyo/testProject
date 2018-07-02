@@ -21,6 +21,6 @@ end
   content = Faker::Lorem.sentence(5)
   user_id = rand(1...98)
   CATEGORY = ["Lifestyle", "Entertainment", "Tech", "Food", "Sports", "Videos", "Cinema"]
-  randCategory= rand (0...6)
+  randCategory= rand (0...8)
   BlogPost.create!(title: title, content: content, user_id: user_id, category: CATEGORY[randCategory])
 end

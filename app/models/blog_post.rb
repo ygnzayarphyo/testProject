@@ -6,4 +6,6 @@ class BlogPost < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  ratyrate_rateable "original_score"
+
 end

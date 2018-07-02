@@ -31,6 +31,8 @@ gem 'mini_magick'
 gem 'jquery-rails'
 #for semi data for database data.
 gem 'faker'
+#for rating bar
+gem 'ratyrate'
 #end user defined
 
 # Use CoffeeScript for .coffee assets and views

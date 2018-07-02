@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :blog_posts
   get 'static_pages/Lifestyle'
   get 'static_pages/Entertainment'

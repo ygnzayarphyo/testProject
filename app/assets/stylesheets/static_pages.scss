@@ -8,6 +8,8 @@ $white: #fff;
 $red: #C70039;
 $dark-green: #20B100;
 $light-green: #B8FFA8;
+$bootstrap-blue: #428bca;
+$visited: #ff66cc;
 
 /* universal */
 
@@ -38,7 +40,7 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+  line-height: 0.5;
 }
 
 h1 {
@@ -46,6 +48,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-family:verdana;
 }
 
 h2 {
@@ -55,6 +58,10 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: $light-gray;
+}
+
+h3{
+  color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: bold; line-height: 48px; margin: 0;
 }
 
 p {
@@ -75,15 +82,15 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
   text-decoration: none;
 }
 .navbar-nav > li > a {
     color: $white;
     font-size: 1.3em;
+
 }
 .navbar-nav > li > a:hover{
-    color: $light-green;
+    color: $red;
     font-weight: bold;
 }
 
@@ -101,10 +108,10 @@ footer {
 
 a:link {
 
-  color: #fff;
+  color: $bootstrap-blue;
 
   &:visited {
-    color: #666;
+    color: $visited;
   }
 
   &:hover {

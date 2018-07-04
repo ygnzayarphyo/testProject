@@ -5,6 +5,7 @@
 $light-gray: #777;
 $light-sea-green: #20b2aa;
 $white: #fff;
+$milk-white: #FEFCFF;
 $red: #C70039;
 $dark-green: #20B100;
 $light-green: #B8FFA8;
@@ -14,11 +15,17 @@ $visited: #ff66cc;
 /* universal */
 
 header{
-  background-color: $red
+  background-color: $bootstrap-blue;
+}
+.active{
+  /*background-color: $light-gray;
+  text-emphasis-color: $bootstrap-blue;*/
+
 }
 
 body {
-  padding-top: 60px
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 section {
@@ -61,7 +68,12 @@ h2 {
 }
 
 h3{
-  color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: bold; line-height: 48px; margin: 0;
+  color: #7c795d;
+  font-family: 'Trocchi', serif;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 48px;
+  margin: 0;
 }
 
 p {
@@ -72,7 +84,9 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
+  position: relative;
+  text-align: left;
+  margin-right: 1px;
   font-size: 1.7em;
   color: $white;
   text-transform: uppercase;
@@ -87,22 +101,44 @@ p {
 .navbar-nav > li > a {
     color: $white;
     font-size: 1.3em;
-
+    padding: 5px;
 }
 .navbar-nav > li > a:hover{
-    color: $red;
-    font-weight: bold;
+  color: $bootstrap-blue;
+  font-weight: bold;
+
+}
+
+.navbar-nav > li > input{
+
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+
+}
+
+.entry-header{
+  text-align: left;
+  text-transform: capitalize;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 /* footer */
 
 footer {
-  margin-top: 45px;
+  //margin-top: 30px;
+  text-align:center;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: $light-gray;
+  color: $white;
   text-align: right;
   padding-right: 20px;
+  background-color: $light-gray
 
 }
 

@@ -17,8 +17,8 @@
 end
 
  50.times do |n|
-  title = "Title-#{n+1}"
-  content = Faker::Lorem.sentence(5)
+  title = Faker::Lorem.sentence(5)
+  content = Faker::Lorem.sentence(100)
   user_id = rand(1...98)
   CATEGORY = ["Lifestyle", "Entertainment", "Tech", "Food", "Sports", "Videos", "Cinema"]
   randCategory= rand (0...8)

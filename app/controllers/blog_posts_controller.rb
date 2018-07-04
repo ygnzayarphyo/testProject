@@ -15,6 +15,14 @@ class BlogPostsController < ApplicationController
   def show
   end
 
+  #search?id=64&keywords=
+  def search
+    @keywords=params[:keywords]
+    #@blog_posts=BlogPost.where(id: @keywords) || BlogPost.where(title: @keywords) || BlogPost.where(content: @keywords) || BlogPost.where(category: @keywords)
+    @blog_posts=BlogPost.where("LOWER(title) LIKE ? OR LOWER(content) LIKE ? OR LOWER(category) LIKE ?", "%#{@keywords.downcase}%","%#{@keywords.downcase}%", "%#{@keywords.downcase}%")
+    @blog_posts=@blog_posts.paginate(page: params[:page])
+  end
+
   # GET /blog_posts/new
   def new
     @blog_post = BlogPost.new

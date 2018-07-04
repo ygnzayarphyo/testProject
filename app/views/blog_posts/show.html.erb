@@ -1,46 +1,56 @@
 <% provide(:title, 'Show posted ') %>
-<%
-  @user=User.find_by(id: @blog_post.user_id)
-%>
 
-<p id="notice"><%= notice %></p>
+    <%
+      @user=User.find_by(id: @blog_post.user_id)
+    %>
 
-<p>
-  <h2 align="left"><strong><%= @blog_post.title %></strong></h2>
-</p>
+<div class="w3-content" style="max-width:1400px">
 
-<div class="grid-container">
-  <h6>
-    <div class="picture">
-      <% if @blog_post.picture? %>
-        <%= image_tag @blog_post.picture.url, width: 150, height: 150 %>
-      <% else %>
-        <%= link_to image_tag("default_picture.png", alt: "No image uploaded.", width: 300, height: 150) %>
-      <% end %>
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col-center l8 s12">
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <% if @blog_post.picture? %>
+      <%= image_tag @blog_post.picture.url, alt: @blog_post.title, style: "width:80%", style: "max-height: 444px" %>
+    <% else %>
+      <%= link_to image_tag("default_picture.png", alt: "No image uploaded.", style: "width:100%", style: "height: 444px") %>
+    <% end %>
+    <div class="w3-container">
+      <h3>
+        <b><%= @blog_post.title %></b>
+        <span>
+        <% if user_signed_in? %>
+          <% if current_user.id==@blog_post.user_id %>
+            <%= link_to '', edit_blog_post_path(@blog_post), class: "glyphicon glyphicon-pencil" %> |
+            <%= link_to '', @blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash destroy_post" %> &nbsp;
+          <% end %>
+        <% end %>
+      </span>
+      </h3>
+      <h5>
+        By <%= @user.username %> | <span>Category: <bold><%= @blog_post.category %></bold></span> | 
+        <span class="w3-opacity"><span class="glyphicon glyphicon-time"></span><%= @blog_post.created_at %></span>
+      </h5>
     </div>
-  </h6>
-</div>
-<h6>
-<%= time_ago_in_words(@blog_post.created_at) %> ago. | <bold><%= @blog_post.category %></bold><br/><br/>
-Posted By <%= @user.username %>.
-<% if user_signed_in? %>
-  <% if current_user.id==@blog_post.user_id %>
-    <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-    <%= link_to 'Destroy', @blog_post, method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp;
-  <% end %>
-<% end %>
-</h6>
-<p>
-  <strong>Content:</strong>
-  <%= @blog_post.content %>
-</p>
 <br/>
-
-<div class="row">
-  <div class="small-2 large-2 columns">
-  <%#= rating_for @blog_post, 'original_score', star: 10 %>
+    <div class="w3-container">
+      <p><%= raw(@blog_post.content) %></p>
+      <br/>
+      <div class="w3-col m8 s12">
+          <p>
+            <%= link_to "<< Back", "/home", class: "w3-button w3-padding-large w3-white w3-border" %><br />
+          </p>
+        </div>
+    </div>
   </div>
-  <br>
+  <hr>
+
 </div>
 
-<br/>
+</div>
+
+<!-- END GRID -->
+</div><br>

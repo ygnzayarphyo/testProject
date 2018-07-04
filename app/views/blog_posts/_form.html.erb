@@ -11,43 +11,68 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="container-fluid">
+      <div class="row">
     <%#= form.label :picture %>
     <%#= form.text_field :picture, class: "form-control" %>
-    <span class="picture">
-      <table>
-        <tr>
-          <td><img id="picture_preview"/></td>
-          <td height="100" valign="bottom"><%= form.label :category %></td>
-        </tr>
-        <tr>
-          <td><%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', :onchange=>"readURL(this);"%></td>
-          <td><%= form.select :category, BlogPostsController::CATEGORY.map { |s| [s] }, class: "mb-3" %></td>
-        </tr>
-      </table>
-    </span>
-  </div>
+        <div class="col-lg-38">
+          <span class="picture">
+            <table width="100%">
+              <tr>
+                <td height="100" valign="bottom">
 
-  <div class="field">
-    <%= form.text_field :title, class: "form-control", placeholder: "Title of Post..." %>
-  </div>
+                  <% if blog_post.picture? %>
+                    <%= image_tag blog_post.picture.url, id: 'picture_preview', width: 250, height: 150%>
+                  <% else %>
+                    <%= form.label "Content Picture", id: 'lblPicDescription' %>
+                    <img id="picture_preview"/>
+                  <% end %>
+                </td>
+                <td height="100" valign="bottom" style="text-align: center"><%= form.label :category %></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="file-field">
+                      <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', :onchange=>"readURL(this);"%>
+                  </div>
 
-  <div class="field">
-    <%= form.text_area :content, :placeholder => "Add new Content...", class: "form-control" %>
-  </div>
+                </td>
+                <td style="text-align: center" width="100%"><%= form.select :category, BlogPostsController::CATEGORY.map { |s| [s] }, class: "mb-3 btn btn-secondary dropdown-toggle" %></td>
+              </tr>
+            </table>
+          </span>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
 
-  <div class="field">
-    <%= form.hidden_field :user_id, :value => current_user.id %>
-  </div>
+        <div class="field col-lg-38">
+          <%= form.text_field :title, class: "form-control", placeholder: "Title of Post..." %>
+        </div>
+      </div>
+      <div class="row">
 
-  <div class="actions">
-    <%= form.submit "Submit", class: "btn btn-primary btn-block" %>
-    <br/>
-    <br/>
-    <br/>
-  </div>
+        <div class="field col-lg-38">
+          <%= form.text_area :content, :placeholder => "Add new Content...", class: "form-control"%>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="field col-lg-38">
+          <%= form.hidden_field :user_id, :value => current_user.id %>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="actions col-lg-38">
+          <%= form.submit "Submit", class: "btn btn-primary btn-block" %>
+          <br/>
+          <br/>
+          <br/>
+        </div>
+      </div>
+
 <% end %>
-
 
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {
@@ -66,6 +91,7 @@
               .attr('src', e.target.result)
               .width(100)
               .height(100);
+          $('#lblPicDescription').hide();
         };
 
       reader.readAsDataURL(input.files[0]);

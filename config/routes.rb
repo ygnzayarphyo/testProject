@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get '/sport', to: 'static_pages#Sports'
   get '/tech', to: 'static_pages#Tech'
   get '/video', to: 'static_pages#Videos'
+  get '/search', to: 'blog_posts#search'
   root 'static_pages#home'
 end

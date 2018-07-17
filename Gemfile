@@ -33,6 +33,8 @@ gem 'jquery-rails'
 gem 'faker'
 #for rating bar
 gem 'ratyrate'
+#for blog
+gem 'lines-engine'
 #end user defined
 
 # Use CoffeeScript for .coffee assets and views
